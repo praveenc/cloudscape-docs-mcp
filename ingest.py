@@ -28,8 +28,8 @@ from sentence_transformers import SentenceTransformer
 # --- Configuration ---
 DOCS_DIR = Path("./docs")
 DB_URI = Path("./data/lancedb")
-MODEL_NAME = "jinaai/jina-code-embeddings-1.5b"
-VECTOR_DIM = 1536
+MODEL_NAME = "jinaai/jina-code-embeddings-0.5b"
+VECTOR_DIM = 896  # 1536 if 1.5b model
 EXTENSIONS = {".md", ".txt", ".tsx", ".ts"}
 
 # --- Setup Rich Console & Logging ---
@@ -117,7 +117,7 @@ def _load_resources() -> tuple[SentenceTransformer, Any]:
 
     try:
         with console.status(
-            f"[bold green]Loading Jina Code 1.5B on {device.upper()}...",
+            f"[bold green]Loading {MODEL_NAME} on {device.upper()}...",
             spinner="bouncingBall",
         ):
             # Mac Optimization Notes:

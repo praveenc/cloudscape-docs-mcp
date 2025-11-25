@@ -67,7 +67,7 @@ This will:
 
 - Scan all files in `docs/`
 - Chunk content into ~2000 character segments
-- Generate embeddings using [Jina Code Embeddings 1.5B](https://huggingface.co/jinaai/jina-code-embeddings-1.5b) embedding model
+- Generate embeddings using [Jina Code Embeddings 0.5B](https://huggingface.co/jinaai/jina-code-embeddings-0.5b) embedding model
 - Store vectors in `data/lancedb/`
 
 > **Note:** Running `uv run ingest.py` multiple times is safe but performs a **full re-index** each time. The script uses `mode="overwrite"` which drops and recreates the database table. There is no incremental update or change detection—all documents are re-scanned and re-embedded on every run. This is idempotent (same docs produce the same result) but computationally expensive for large documentation sets.
